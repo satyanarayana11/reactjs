@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="buttonid"></div>
+  <script>
+  let state={
+  count:0
+}
+function OnClick(){
+  state.count++;
+  ButtonClicked();
+}
+function ButtonClicked(){
+  document.getElementById("buttonid").innerHTML="";
+  const component=ButtonCreator(state.count);
+  document.getElementById("buttonid").appendChild(component);
+}
+function ButtonCreator(count){
+   const button=document.createElement("button");
+     button.innerHTML=`counter ${count}`;
+     button.setAttribute("onclick","OnClick()");
+    return button;
+}
+   ButtonClicked();
+    </script>
+</body>
+</html>
